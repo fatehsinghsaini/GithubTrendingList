@@ -17,6 +17,10 @@
 8. All relevant Error states to be handled in
    the app
 
+- [HomePage](https://github.com/fatehsinghsaini/GithubTrendingList/blob/master/device-2021-12-11-234522.png)
+- [DetailPage](https://github.com/fatehsinghsaini/GithubTrendingList/blob/master/device-2021-12-11-234544.png)
+- [SearchPage](https://github.com/fatehsinghsaini/GithubTrendingList/blob/master/device-2021-12-11-234611.png)
+
 ## API
 Since there is no official API for Trending Repositories (it is one of the internal GitHub API’s),
 <br />
@@ -39,5 +43,5 @@ I have decided to use [GitHub Search API](https://developer.github.com/v3/search
 - [CircleImageView](https://github.com/hdodenhof/CircleImageView)-for circle image view   
 - [Retrofit2 & OkHttp3](https://github.com/square/retrofit) - construct the REST APIs and paging network data.
 - [Material-Components](https://github.com/material-components/material-components-android) - Material design components like ripple animation, cardView.
-- [HomePage](https://github.com/fatehsinghsaini/GithubTrendingList/blob/master/device-2021-12-11-234522.png)
+
 
