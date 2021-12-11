@@ -1,5 +1,4 @@
 ##Requirement 
-   ##PHASE 1
 1. Show trending repos of github in a
    RecyclerView using Github APIs
 2. On click of Item, THE ROW SHOULD BE
@@ -11,7 +10,6 @@
 5. Needful Android app Architecture to be
    followed(to be chosen by you as per your
    preference)
-   ##PHASE 2
 6. I Can Search the repo from the local list
    using a search box on top which will
    filter the list
@@ -41,5 +39,5 @@ I have decided to use [GitHub Search API](https://developer.github.com/v3/search
 - [CircleImageView](https://github.com/hdodenhof/CircleImageView)-for circle image view   
 - [Retrofit2 & OkHttp3](https://github.com/square/retrofit) - construct the REST APIs and paging network data.
 - [Material-Components](https://github.com/material-components/material-components-android) - Material design components like ripple animation, cardView.
-
+- [HomePage](https://github.com/fatehsinghsaini/GithubTrendingList/blob/master/device-2021-12-11-234522.png)
 
