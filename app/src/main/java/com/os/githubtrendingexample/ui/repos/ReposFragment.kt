@@ -17,8 +17,10 @@ import androidx.paging.LoadState
 import com.os.githubtrendingexample.R
 import com.os.githubtrendingexample.data.model.Languages
 import com.os.githubtrendingexample.databinding.FragmentReposBinding
+import com.os.githubtrendingexample.ui.repos.adapter.ImageSliderAdapter
 import com.os.githubtrendingexample.ui.repos.adapter.ReposAdapter
 import com.os.githubtrendingexample.ui.repos.adapter.ReposLoadStateAdapter
+import com.os.githubtrendingexample.utils.DateUtils.swap
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -34,6 +36,9 @@ class ReposFragment : Fragment(R.layout.fragment_repos) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val arrayList = arrayListOf(1, 3, 4, 5, 7, 8)
+        arrayList.swap(1, 4)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,6 +49,8 @@ class ReposFragment : Fragment(R.layout.fragment_repos) {
         _binding = FragmentReposBinding.bind(view)
 
         val adapter = ReposAdapter()
+
+        imageSliderImplementation()
 
         binding.apply {
 
@@ -117,13 +124,25 @@ class ReposFragment : Fragment(R.layout.fragment_repos) {
         searchAutoComplete.onItemClickListener =
             OnItemClickListener { adapterView, _, itemIndex, _ ->
                 val queryString = adapterView.getItemAtPosition(itemIndex) as String
-                searchAutoComplete.setText(String.format(getString(R.string.search_query), queryString))
+                searchAutoComplete.setText(
+                    String.format(
+                        getString(R.string.search_query),
+                        queryString
+                    )
+                )
                 binding.recycler.scrollToPosition(0)
                 val languageQuery = String.format(getString(R.string.query), queryString)
                 viewModel.searchRepos(languageQuery)
                 searchView.clearFocus()
-                (activity as AppCompatActivity).supportActionBar?.title = queryString.capitalize(Locale.ROOT)
+                (activity as AppCompatActivity).supportActionBar?.title =
+                    queryString.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString() }
             }
+    }
+
+    private fun imageSliderImplementation() {
+        val adapter = ImageSliderAdapter(context)
+        _binding?.viewpager?.adapter = adapter
+        _binding?.tabLayout?.setupWithViewPager(_binding?.viewpager, true)
     }
 
     override fun onDestroyView() {

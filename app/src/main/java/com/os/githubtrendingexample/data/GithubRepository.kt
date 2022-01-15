@@ -19,4 +19,5 @@ class GithubRepository @Inject constructor(private val githubApi: GithubApi) {
             ),
             pagingSourceFactory = { GithubPagingSource(githubApi, query) }
         ).liveData
+
 }
